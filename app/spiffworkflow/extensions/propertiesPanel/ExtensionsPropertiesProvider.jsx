@@ -76,6 +76,11 @@ export default function ExtensionsPropertiesProvider(
       }
       if (isAny(element, ['bpmn:ManualTask', 'bpmn:UserTask'])) {
         groups.push(
+          createFormLoadScriptGroup(element, translate, moddle, commandStack)
+        );
+      }
+      if (isAny(element, ['bpmn:ManualTask', 'bpmn:UserTask'])) {
+        groups.push(
           createAllowGuestGroup(element, translate, moddle, commandStack)
         );
       }
@@ -182,6 +187,22 @@ function preScriptPostScriptGroup(element, translate, moddle, commandStack) {
     id: 'spiff_pre_post_scripts',
     label: translate('Pre/Post Scripts'),
     entries: entries,
+  };
+}
+
+function createFormLoadScriptGroup(element, translate, moddle, commandStack) {
+  return {
+    id: 'spiff_form_load_script',
+    label: translate('Form Load Script'),
+    entries: scriptGroup({
+      element,
+      moddle,
+      commandStack,
+      translate,
+      scriptType: SCRIPT_TYPE.formLoad,
+      label: 'Form Load Script',
+      description: 'Code to execute each time the form is loaded.',
+    }),
   };
 }
 

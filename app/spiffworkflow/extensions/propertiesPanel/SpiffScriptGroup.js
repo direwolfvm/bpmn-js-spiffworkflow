@@ -11,6 +11,7 @@ export const SCRIPT_TYPE = {
   bpmn: 'bpmn:script',
   pre: 'spiffworkflow:PreScript',
   post: 'spiffworkflow:PostScript',
+  formLoad: 'spiffworkflow:FormLoadScript',
 };
 
 function PythonScript(props) {

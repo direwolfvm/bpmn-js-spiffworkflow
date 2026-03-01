@@ -30,6 +30,17 @@
       ]
     },
     {
+      "name": "FormLoadScript",
+      "superClass": ["Element"],
+      "properties": [
+        {
+          "name": "value",
+          "isBody": true,
+          "type": "String"
+        }
+      ]
+    },
+    {
       "name": "MessagePayload",
       "superClass": ["Element"],
       "properties": [
